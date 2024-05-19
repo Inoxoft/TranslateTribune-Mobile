@@ -66,6 +66,7 @@ class _ArticleItemState extends State<ArticleItem> {
           bottom: 24.0,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
