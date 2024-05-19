@@ -1,0 +1,63 @@
+name: translatetribune
+description: "Translate Tribune project."
+publish_to: 'none'
+version: 1.0.2+11
+
+environment:
+  sdk: '>=3.3.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Routing
+  auto_route: 8.1.1
+
+  # UI
+  google_fonts: 6.2.1
+
+  # Notifications
+  flutter_local_notifications: 17.1.0
+
+  # Local database
+  drift: 2.17.0
+  drift_sqflite: 2.0.1
+  sqlite3_flutter_libs: 0.5.21
+
+  # Utils
+  intl: 0.19.0
+  html: 0.15.4
+  url_launcher: 6.2.6
+  flutter_launcher_icons: 0.13.1
+  share_plus: 9.0.0
+  permission_handler: 11.3.1
+  timezone: 0.9.3
+  app_settings: 5.1.1
+
+  # Code Generation
+  get_it: 7.7.0
+  freezed: 2.5.2
+  json_serializable: 6.7.1
+  injectable: 2.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: 2.4.9
+  injectable_generator: 2.6.1
+  freezed_annotation: 2.4.1
+  flutter_lints: 3.0.0
+  auto_route_generator: 8.0.0
+  drift_dev: 2.17.0
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/launcher_icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/flags/
