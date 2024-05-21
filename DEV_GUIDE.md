@@ -10,7 +10,11 @@ Ensure you have the following installed before proceeding:
 ### 1. Clone the repository
 ### 2. Navigate to the project folder
 ### 3. Install Dependencies
-Before building the app, you need to install all the required dependencies. This is done using the `flutter pub get` command.
+Before building the app, you need to install all the required dependencies. This is done using the following command:
+
+    flutter pub get
+
+
 
 This command fetches all the packages listed in your `pubspec.yaml` file and installs them in your project. It's similar to `npm install` in Node.js or `pip install` in Python.
 
