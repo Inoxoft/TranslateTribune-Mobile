@@ -10,26 +10,26 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: WelcomeRoute.page,
+          page: SplashRoute.page,
           initial: true,
         ),
         AutoRoute(
-          page: ArticlesRoute.page,
+          page: WelcomeRoute.page,
+        ),
+        AutoRoute(
+          path: '/home',
+          page: HomeRoute.page,
+          children: [
+            RedirectRoute(path: '', redirectTo: 'articles'),
+            AutoRoute(path: 'articles', page: ArticlesRoute.page),
+            AutoRoute(path: 'saved', page: SavedArticlesRoute.page),
+            AutoRoute(path: 'games', page: GamesRoute.page),
+            AutoRoute(path: 'menu', page: SettingsRoute.page),
+            // AutoRoute(path: 'posts', page: PostsRoute.page),
+          ],
         ),
         AutoRoute(
           page: ArticleRoute.page,
-        ),
-        AutoRoute(
-          page: SavedArticlesRoute.page,
-        ),
-        AutoRoute(
-          page: MenuRoute.page,
-        ),
-        AutoRoute(
-          page: SettingsRoute.page,
-        ),
-        AutoRoute(
-          page: GamesRoute.page,
         ),
         AutoRoute(
           page: NonogramRoute.page,

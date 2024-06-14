@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:translatetribune/src/configs/configs/get_it.dart';
-import 'package:translatetribune/src/data/models/language_model.dart';
+import 'package:translatetribune/src/data/services/language.dart';
 import 'package:translatetribune/src/presentation/shared/articles_header.dart';
 import 'package:translatetribune/src/presentation/shared/news_builder.dart';
 import 'package:translatetribune/src/presentation/shared/tab_item.dart';
@@ -9,12 +9,9 @@ import 'package:translatetribune/src/data/services/articles.dart';
 
 @RoutePage()
 class ArticlesPage extends StatefulWidget {
-  ArticlesPage({
-    required this.language,
+  const ArticlesPage({
     super.key,
   });
-
-  final LanguageModel language;
 
   @override
   State<ArticlesPage> createState() => _ArticlesPageState();
@@ -28,6 +25,8 @@ class _ArticlesPageState extends State<ArticlesPage>
   TextEditingController searchController = TextEditingController();
 
   late TabController tabController;
+
+  late final language = getIt<LanguagesService>().selectedLanguage!;
 
   @override
   void initState() {
@@ -66,7 +65,7 @@ class _ArticlesPageState extends State<ArticlesPage>
             child: Column(
               children: [
                 ArticlesHeader(
-                  language: widget.language,
+                  language: language,
                   openSearch: openSearch,
                   setFilter: setFilter,
                   searchOpened: searchOpened,
@@ -89,14 +88,14 @@ class _ArticlesPageState extends State<ArticlesPage>
                   tabs: [
                     Tab(
                       child: TabItem(
-                        widget.language.worldNews,
+                        language.worldNews,
                         index: 0,
                         tabController: tabController,
                       ),
                     ),
                     Tab(
                       child: TabItem(
-                        widget.language.financeTechnology,
+                        language.financeTechnology,
                         index: 1,
                         tabController: tabController,
                       ),
@@ -117,16 +116,16 @@ class _ArticlesPageState extends State<ArticlesPage>
                 children: [
                   NewsBuilder(
                     future: getIt<ArticlesService>().loadWorldNews(
-                      widget.language.publishingLanguageShort,
+                      language.publishingLanguageShort,
                     ),
-                    language: widget.language,
+                    language: language,
                     filter: filter,
                   ),
                   NewsBuilder(
                     future: getIt<ArticlesService>().loadFinancialAndTechNews(
-                      widget.language.publishingLanguageShort,
+                      language.publishingLanguageShort,
                     ),
-                    language: widget.language,
+                    language: language,
                     filter: filter,
                   ),
                 ],

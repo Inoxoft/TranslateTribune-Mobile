@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:translatetribune/src/configs/configs/get_it.dart';
-import 'package:translatetribune/src/configs/router/app_router.dart';
 import 'package:translatetribune/src/data/services/saved_articles.dart';
 import 'package:translatetribune/src/presentation/shared/saved_article_item.dart';
 
@@ -22,19 +20,6 @@ class SavedArticlesPage extends StatelessWidget {
         title: Text(
           'Favorites',
           style: theme.textTheme.bodyLarge,
-        ),
-        leading: IconButton(
-          onPressed: () {
-            HapticFeedback.mediumImpact();
-            AppRouter.instance.maybePop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: theme.indicatorColor,
-          ),
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          hoverColor: Colors.transparent,
         ),
       ),
       extendBodyBehindAppBar: false,

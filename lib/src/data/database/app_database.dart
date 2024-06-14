@@ -11,7 +11,10 @@ import 'package:path/path.dart' as p;
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 
 import 'daos/saved_articles_dao.dart';
+import 'daos/settings_dao.dart';
+
 import 'tables/saved_articles.dart';
+import 'tables/settings.dart';
 
 part 'app_database.g.dart';
 
@@ -19,9 +22,11 @@ part 'app_database.g.dart';
 @DriftDatabase(
   tables: [
     SavedArticles,
+    UserSettings,
   ],
   daos: [
     SavedArticlesDao,
+    SettingsDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -39,6 +44,10 @@ class AppDatabase extends _$AppDatabase {
           if (from < 2) {
             await m.addColumn(savedArticles, savedArticles.country);
             await m.addColumn(savedArticles, savedArticles.flagPath);
+          }
+          if (from < 3) {
+            await m.addColumn(userSettings, userSettings.id);
+            await m.addColumn(userSettings, userSettings.language);
           }
         },
       );
