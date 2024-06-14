@@ -49,12 +49,22 @@ dev_dependencies:
   flutter_lints: 3.0.0
   auto_route_generator: 8.0.0
   drift_dev: 2.17.0
+  flutter_svg: 2.0.10+1
+  flutter_native_splash: 2.4.0
 
 flutter_launcher_icons:
   android: true
   ios: true
   remove_alpha_ios: true
   image_path: "assets/launcher_icon.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/logo.png
+  android: true
+  ios: true
+  android_gravity: center
+  ios_content_mode: center
 
 flutter:
   uses-material-design: true

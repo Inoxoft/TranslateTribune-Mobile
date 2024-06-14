@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:translatetribune/src/configs/router/app_router.dart';
 import 'package:translatetribune/src/configs/router/app_router.gr.dart';
 import 'package:translatetribune/src/presentation/shared/settings_item.dart';
@@ -38,19 +37,6 @@ class GamesPage extends StatelessWidget {
           'Games',
           style: theme.textTheme.bodyLarge,
         ),
-        leading: IconButton(
-          onPressed: () {
-            HapticFeedback.mediumImpact();
-            AppRouter.instance.maybePop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: theme.indicatorColor,
-          ),
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-        ),
       ),
       extendBodyBehindAppBar: false,
       body: Padding(
@@ -63,12 +49,14 @@ class GamesPage extends StatelessWidget {
           children: [
             const SizedBox(height: 24.0),
             SettingsItem(
-              '$nonogramEmoji Nonograms game',
+              'Nonograms game',
+              emoji: nonogramEmoji,
               onTap: openNonogram,
             ),
             const SizedBox(height: 24.0),
             SettingsItem(
-              '$fifteenPuzzleNumberEmoji 15 Puzzle game',
+              '15 Puzzle game',
+              emoji: fifteenPuzzleNumberEmoji,
               onTap: openSlidePuzzle,
             ),
             // const SizedBox(height: 16.0),

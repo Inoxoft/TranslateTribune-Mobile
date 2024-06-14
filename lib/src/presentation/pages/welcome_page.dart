@@ -2,11 +2,7 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:translatetribune/src/configs/configs/get_it.dart';
-import 'package:translatetribune/src/configs/router/app_router.dart';
-import 'package:translatetribune/src/configs/router/app_router.gr.dart';
 import 'package:translatetribune/src/data/models/language_model.dart';
 import 'package:translatetribune/src/presentation/shared/language_item.dart';
 import 'package:translatetribune/src/data/services/language.dart';
@@ -54,15 +50,6 @@ class _WelcomePageState extends State<WelcomePage> {
     });
   }
 
-  void openLanguage(LanguageModel language) {
-    AppRouter.instance.push(ArticlesRoute(language: language));
-  }
-
-  void openMenu() {
-    final language = languages.first;
-    AppRouter.instance.push(MenuRoute(language: language));
-  }
-
   void openInoxoft() => Launch.launchURL(inoxoftLink);
 
   @override
@@ -70,26 +57,6 @@ class _WelcomePageState extends State<WelcomePage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        actions: [
-          IconButton(
-            onPressed: () {
-              HapticFeedback.mediumImpact();
-              openMenu();
-            },
-            icon: Icon(
-              Icons.menu,
-              color: theme.indicatorColor,
-            ),
-            highlightColor: theme.highlightColor,
-            splashColor: theme.highlightColor,
-            hoverColor: theme.highlightColor,
-          ),
-        ],
-      ),
-      extendBodyBehindAppBar: true,
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
@@ -104,10 +71,6 @@ class _WelcomePageState extends State<WelcomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Spacer(),
-              // const Flexible(
-              //   child: LettersBG(),
-              // ),
-              // const SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24.0,
@@ -122,7 +85,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 children: languages.map((language) {
                   return LanguageItem(
                     language,
-                    openLanguage: openLanguage,
+                    openLanguage: getIt<LanguagesService>().openLanguage,
                   );
                 }).toList(),
               ),
@@ -169,10 +132,6 @@ class _WelcomePageState extends State<WelcomePage> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              // const SizedBox(height: 24.0),
-              // const Flexible(
-              //   child: LettersBG(),
-              // ),
               Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,

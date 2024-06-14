@@ -3,16 +3,22 @@ import 'package:flutter/services.dart';
 
 class SettingsItem extends StatelessWidget {
   const SettingsItem(
-    this.text, {
+    this.title, {
+    required this.emoji,
     required this.onTap,
+    this.subtitle,
     super.key,
   });
 
-  final String text;
+  final String emoji;
+  final String title;
+  final String? subtitle;
   final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return DecoratedBox(
       decoration: BoxDecoration(
         border: Border(
@@ -21,7 +27,11 @@ class SettingsItem extends StatelessWidget {
           ),
         ),
       ),
-      child: GestureDetector(
+      child: InkWell(
+        focusColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         onTap: () {
           HapticFeedback.mediumImpact();
           onTap();
@@ -32,10 +42,37 @@ class SettingsItem extends StatelessWidget {
             padding: const EdgeInsets.only(
               bottom: 16.0,
             ),
-            child: Text(
-              text,
-              style: Theme.of(context).textTheme.bodyLarge,
-              textAlign: TextAlign.left,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  emoji,
+                  style: theme.textTheme.bodyLarge,
+                  textAlign: TextAlign.left,
+                ),
+                const SizedBox(width: 8),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: theme.textTheme.bodyLarge,
+                      textAlign: TextAlign.left,
+                    ),
+                    if (subtitle != null)
+                      Text(
+                        subtitle!.toUpperCase(),
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.focusColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 2,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
