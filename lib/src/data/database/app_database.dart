@@ -33,7 +33,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -46,8 +46,7 @@ class AppDatabase extends _$AppDatabase {
             await m.addColumn(savedArticles, savedArticles.flagPath);
           }
           if (from < 3) {
-            await m.addColumn(userSettings, userSettings.id);
-            await m.addColumn(userSettings, userSettings.language);
+            await m.createTable(userSettings);
           }
         },
       );

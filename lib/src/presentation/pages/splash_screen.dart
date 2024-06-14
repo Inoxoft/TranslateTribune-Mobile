@@ -37,6 +37,9 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(
+            height: 32,
+          ),
           SvgPicture.asset(
             'assets/logo.svg',
           ),
@@ -45,7 +48,9 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           SizedBox(
             width: double.infinity,
-            child: Center(
+            height: 24,
+            child: Align(
+              alignment: Alignment.topCenter,
               child: Text(
                 dateFormat.format(DateTime.now()),
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
