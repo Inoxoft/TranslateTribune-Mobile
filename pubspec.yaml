@@ -1,7 +1,7 @@
 name: translatetribune
 description: "Translate Tribune project."
 publish_to: 'none'
-version: 1.0.2+11
+version: 1.0.2+15
 
 environment:
   sdk: '>=3.3.3 <4.0.0'

@@ -1,0 +1,1 @@
+A free and open-source project that leverages AI to curate, translate, and summarize foreign-language news articles from diverse countries.
