@@ -1,7 +1,7 @@
 ## Getting Started 🏁
 
 Ensure you have the following installed before proceeding:
-- Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
+- Flutter SDK (Flutter 3.19.5 • channel stable): [Installation Guide](https://flutter.dev/docs/get-started/install)
 - Dart SDK (usually comes with Flutter)
 - An IDE such as XCode, Android Studio, IntelliJ, or VS Code with Flutter and Dart plugins
 

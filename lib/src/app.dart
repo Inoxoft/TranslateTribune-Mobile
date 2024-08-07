@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:translatetribune/src/configs/configs/get_it.dart';
 import 'package:translatetribune/src/configs/router/app_router.dart';
 import 'package:translatetribune/src/data/services/notifications.dart';
@@ -83,20 +82,24 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
         dividerColor: const Color(0xFF141414).withOpacity(0.2),
         indicatorColor: const Color(0xFF141414),
         scaffoldBackgroundColor: Colors.white,
-        textTheme: TextTheme(
-          titleMedium: GoogleFonts.robotoMono(
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(
+            fontFamily: 'RobotoMono',
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),
-          titleSmall: GoogleFonts.robotoMono(
+          titleSmall: TextStyle(
+            fontFamily: 'RobotoMono',
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
           ),
-          bodyLarge: GoogleFonts.roboto(
+          bodyLarge: TextStyle(
+            fontFamily: 'Roboto',
             fontSize: 19.0,
             fontWeight: FontWeight.w400,
           ),
-          bodySmall: GoogleFonts.roboto(
+          bodySmall: TextStyle(
+            fontFamily: 'Roboto',
             fontSize: 12.0,
             fontWeight: FontWeight.w400,
           ),
